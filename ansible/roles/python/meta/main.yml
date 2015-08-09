@@ -1,3 +1,4 @@
 ---
 dependencies:
+  - common
   - development_tools

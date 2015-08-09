@@ -10,5 +10,5 @@
     - user_shell: "/bin/bash"
 
   roles:
-    - { role: common, tags: [ 'common' ] }
     - { role: python, tags: [ 'pythondev' ] }
+    - { role: jdk,    tags: [ 'javadev' ] }
