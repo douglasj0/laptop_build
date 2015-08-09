@@ -1,0 +1,7 @@
+---
+program_name: "gradle"
+tarball_dir: "/usr/local/src/tarballs"
+version: "2.5"
+home_directory: "gradle-{{ version }}"
+tarball_name: "gradle-{{ version }}-bin.zip"
+url: "https://services.gradle.org/distributions/gradle-{{ version }}-bin.zip"

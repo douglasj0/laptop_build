@@ -4,3 +4,4 @@ dependencies:
   - { role: jdk }
   - { role: maven }
   - { role: groovy }
+  - { role: gradle }
