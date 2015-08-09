@@ -1,0 +1,26 @@
+---
+- name: Gather OS Specific Variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "../vars/{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+    - "../vars/{{ ansible_distribution }}.yml"
+    - "../vars/{{ ansible_os_family }}.yml"
+
+- name: Install python development requirements
+  action: >
+    {{ ansible_pkg_mgr }} name={{ item }} state="installed"
+  with_items: python_dev_pkgs
+
+- name: Install ipython
+  pip:
+    name: ipython
+
+- name: Configure virtualenvwrapper PROJECT_HOME
+  lineinfile:
+    dest="{{ user_home }}/.bashrc"
+    line="PROJECT_HOME=${HOME}/Projects"
+    regexp="^PROJECT_HOME=.*"
+    owner="{{ user_name }}"
+    state=present
+    insertafter=EOF
+    create=True

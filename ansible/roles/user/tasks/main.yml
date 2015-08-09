@@ -1,0 +1,38 @@
+---
+- name: create user
+  user:
+    name: "{{ user_name }}"
+    password: "{{ user_password }}"
+    home: "{{ user_home }}"
+    shell: "{{ user_shell }}"
+    createhome: "yes"
+
+#
+# Environment settings and dotfiles
+#
+- include: bashrc.yml
+- include: gitconfig.yml
+
+#
+# Home directory tree
+#
+- name: create Library directory
+  file:
+    dest: "{{ user_home }}/Library"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: directory
+
+- name: create Python Library directory
+  file:
+    dest: "{{ user_home }}/Library/Python"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: directory
+
+- name: create Projects directory
+  file:
+    dest: "{{ user_home }}/Projects"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: directory

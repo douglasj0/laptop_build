@@ -1,0 +1,7 @@
+---
+python_dev_pkgs:
+  - python3
+  - python-dev
+  - python-virtualenv
+  - virtualenvwrapper
+  - python-pip

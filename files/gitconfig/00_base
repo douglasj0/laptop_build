@@ -1,0 +1,6 @@
+[user]
+  name = Mike Brannigan
+  email = mikejbrannigan@gmail.com
+
+[core]
+  editor = vim

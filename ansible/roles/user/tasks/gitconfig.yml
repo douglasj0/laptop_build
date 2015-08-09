@@ -1,0 +1,8 @@
+---
+- name: build gitconfig
+  assemble:
+    src: "../files/gitconfig/"
+    dest: "{{ user_home }}/.gitconfig"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: 0644

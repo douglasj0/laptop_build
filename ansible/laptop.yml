@@ -1,0 +1,14 @@
+---
+- hosts: all
+  sudo: true
+
+  vars:
+    - user_name: "mike"
+    - user_password: "$6$FicigeS9$5GBBIBCVq4QYSVCCL9u39uTxkGCAfwJAc4azK5DC2pwYPh/7.pAB2eImtNuBjDkaV7NqcRGYzzYWRLeT0hFC51"
+    - user_plaintext_password: "passw0rd"
+    - user_home: "/home/mike"
+    - user_shell: "/bin/bash"
+
+  roles:
+    - { role: common, tags: [ 'common' ] }
+    - { role: python, tags: [ 'pythondev' ] }

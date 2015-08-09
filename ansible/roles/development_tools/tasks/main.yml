@@ -1,0 +1,11 @@
+---
+- name: Gather OS Specific Variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "../vars/{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+    - "../vars/{{ ansible_distribution }}.yml"
+    - "../vars/{{ ansible_os_family }}.yml"
+
+- name: Install development tools
+  action: >
+    {{ ansible_pkg_mgr }} name={{ devtools }} state="installed"
