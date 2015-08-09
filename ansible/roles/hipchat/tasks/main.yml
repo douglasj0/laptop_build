@@ -1,0 +1,22 @@
+---
+- name: update apt-key for atlassian hipchat
+  shell: "wget -O - https://www.hipchat.com/keys/hipchat-linux.key | apt-key add -"
+  when: ansible_os_family == 'Debian'
+
+- name: create atlassian hipchat repo file
+  copy:
+    src: "Ubuntu/atlassian-hipchat.list"
+    dest: "/etc/apt/sources.list.d/atlassian-hipchat.list"
+    owner: root
+    group: root
+    mode: 644
+  when: ansible_os_family == 'Debian'
+
+- name: Update apt-cache
+  apt: update_cache=yes
+  when: ansible_os_family == 'Debian'
+
+- name: install atlassian hipchat
+  action: >
+    {{ ansible_pkg_mgr }} name="{{ item }}" state="installed" force="yes"
+  with_items: [hipchat]
