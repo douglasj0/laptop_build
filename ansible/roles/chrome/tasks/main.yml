@@ -1,0 +1,22 @@
+---
+- name: update apt-key for google
+  shell: "wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -"
+  when: ansible_os_family == 'Debian'
+
+- name: create google chrome repo file
+  copy:
+    src: "Ubuntu/google.list"
+    dest: "/etc/apt/sources.list.d/google.list"
+    owner: root
+    group: root
+    mode: 644
+  when: ansible_os_family == 'Debian'
+
+- name: Update apt-cache
+  apt: update_cache=yes
+  when: ansible_os_family == 'Debian'
+
+- name: install google chrome
+  action: >
+    {{ ansible_pkg_mgr }} name="{{ item }}" state="installed" force="yes"
+  with_items: [google-chrome-stable]
