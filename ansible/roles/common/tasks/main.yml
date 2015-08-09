@@ -22,6 +22,9 @@
     dest: /usr/local/bash-git-prompt
     update: no
 
+- name: Janus VIM environment
+  include: janus_vim.yml
+
 #
 # Bash environment
 #

@@ -1,0 +1,27 @@
+---
+- name: install vim
+  action: >
+    {{ ansible_pkg_mgr }} name="vim" state="installed"
+
+- name: install rake
+  action: >
+    {{ ansible_pkg_mgr }} name="rake" state="installed"
+
+- name: Install janus_vim
+  shell: "curl -Lo- https://bit.ly/janus-bootstrap | su - {{ user_name }} -c bash"
+  args:
+    creates: "/home/{{ user_name }}/.vim/README.md"
+  sudo: no
+
+- name: make janus directory
+  file:
+    dest: "/home/{{ user_name }}/.janus"
+    state: directory
+  sudo: no
+
+- name: install zencoding
+  git:
+    dest: "/home/{{ user_name }}/.janus/emmit-vim"
+    repo: "https://github.com/mattn/emmet-vim.git"
+    update: no
+  sudo: no
