@@ -1,0 +1,29 @@
+---
+- name: Create tarball directory
+  file:
+    path: "{{ tarball_dir }}"
+    state: directory
+
+- name: Download tarball
+  shell: 'cd {{ tarball_dir }} && wget --quiet --no-check-certificate --no-cookies "{{ url }}"'
+  args:
+    creates: "{{ tarball_dir }}/{{ tarball_name }}"
+
+- name: Untar tarball
+  unarchive:
+    copy: no
+    creates: "/usr/local/{{ home_directory }}"
+    dest: "/usr/local"
+    src:  "{{ tarball_dir }}/{{ tarball_name }}"
+
+- name: create home directory symlink
+  file:
+    src: "/usr/local/{{ home_directory }}"
+    dest: "/usr/local/{{ program_name }}"
+    state: link
+
+- name: Create profile
+  template:
+    src: "{{ program_name }}.j2"
+    dest: "/etc/profile.d/{{ program_name }}.sh"
+    mode: 775

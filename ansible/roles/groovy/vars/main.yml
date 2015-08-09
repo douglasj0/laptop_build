@@ -1,0 +1,7 @@
+---
+program_name: "groovy"
+tarball_dir: "/usr/local/src/tarballs"
+version: "2.4.4"
+home_directory: "groovy-{{ version }}"
+tarball_name: "apache-groovy-binary-{{ version }}.zip"
+url: "http://dl.bintray.com/groovy/maven/apache-groovy-binary-{{ version}}.zip"

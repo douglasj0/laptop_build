@@ -1,0 +1,7 @@
+---
+program_name: "maven"
+tarball_dir: "/usr/local/src/tarballs"
+version: "3.3.1"
+home_directory: "apache-maven-{{ version }}"
+tarball_name: "apache-maven-{{ version }}-bin.tar.gz"
+url: "http://mirror.cogentco.com/pub/apache/maven/maven-3/{{ version }}/binaries/{{ tarball_name }}"

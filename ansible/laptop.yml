@@ -11,4 +11,4 @@
 
   roles:
     - { role: python, tags: [ 'pythondev' ] }
-    - { role: jdk,    tags: [ 'javadev' ] }
+    - { role: javadev, tags: [ 'javadev' ] }
