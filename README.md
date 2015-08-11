@@ -1,5 +1,7 @@
 ### Usage
     $ sudo ./get_prerequisites.sh
+    $ git submodule init
+    $ git submodule update
     $ ./run_ansible.sh
 
 ### Dependencies
