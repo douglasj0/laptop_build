@@ -1,4 +1,7 @@
 ---
+- name: Gather Default Variables
+  include_vars: "../vars/main.yml"
+
 - name: Update apt-cache
   apt: update_cache=yes
   when: ansible_os_family == 'Debian'
@@ -23,6 +26,9 @@
 
 - name: Janus VIM environment
   include: janus_vim.yml
+
+- name: Packer
+  include: packer.yml
 
 #
 # Bash environment

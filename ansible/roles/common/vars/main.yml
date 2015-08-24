@@ -1,0 +1,4 @@
+---
+packer_version: "0.8.6"
+packer_archive: "packer_{{ packer_version }}_linux_amd64.zip"
+packer_url: "https://dl.bintray.com/mitchellh/packer/{{ packer_archive }}"
