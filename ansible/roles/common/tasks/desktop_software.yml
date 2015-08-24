@@ -1,0 +1,5 @@
+---
+
+- name: install keepassx
+  action: >
+    {{ ansible_pkg_mgr }} name="keepassx" state="installed"

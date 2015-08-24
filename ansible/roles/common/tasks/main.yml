@@ -9,11 +9,10 @@
 - name: ensure basic software is installed
   action: >
     {{ ansible_pkg_mgr }} name="{{ item }}" state="installed"
-  with_items: [curl, screen, git, ncdu, tree, vim, wget, unzip ]
+  with_items: [curl, tmux, screen, git, ncdu, tree, vim, wget, unzip ]
 
-- name: install keepassx
-  action: >
-    {{ ansible_pkg_mgr }} name="keepassx" state="installed"
+- name: install desktop software
+  include: desktop_software.yml
   when: "'desktop' in group_names"
 
 - name: grab bash-git-prompt
