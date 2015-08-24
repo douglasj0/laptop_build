@@ -12,3 +12,4 @@
   roles:
     - { role: python, tags: [ 'pythondev' ] }
     - { role: javadev, tags: [ 'javadev' ] }
+    - { role: chefdk, tags: [ 'chefdev' ] }
