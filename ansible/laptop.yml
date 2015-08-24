@@ -11,5 +11,6 @@
 
   roles:
     - { role: python, tags: [ 'pythondev' ] }
+    - { role: awsdev, tags: [ 'awsdev' ] }
     - { role: javadev, tags: [ 'javadev' ] }
     - { role: chefdk, tags: [ 'chefdev' ] }

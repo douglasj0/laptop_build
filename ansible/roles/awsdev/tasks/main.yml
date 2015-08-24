@@ -1,0 +1,5 @@
+---
+- name: Create awsdev virtual environment
+  pip:
+    name: awscli
+    state: present
