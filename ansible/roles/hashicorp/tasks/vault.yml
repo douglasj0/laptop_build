@@ -1,0 +1,25 @@
+---
+- name: Download Vault
+  get_url:
+    url: "{{ vault_url }}"
+    dest: "/usr/local/src/{{ vault_archive }}"
+    force: no
+
+- name: Create Vault Destination Directory
+  file:
+    path: "/usr/local/vault-{{ vault_version }}"
+    state: directory
+
+- name: Unarchive Vault
+  unarchive:
+    copy: no
+    creates: "/usr/local/vault-{{ vault_version }}/vault"
+    dest: "/usr/local/vault-{{ vault_version }}/"
+    src: "/usr/local/src/{{ vault_archive }}"
+
+- name: Create Vault Profile
+  template:
+    src: "vault.j2"
+    dest: "/etc/profile.d/vault.sh"
+    mode: 775
+

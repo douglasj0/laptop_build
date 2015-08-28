@@ -1,0 +1,12 @@
+---
+packer_version: "0.8.6"
+packer_archive: "packer_{{ packer_version }}_linux_amd64.zip"
+packer_url: "https://dl.bintray.com/mitchellh/packer/{{ packer_archive }}"
+
+terraform_version: "0.6.3"
+terraform_archive: "terraform_{{ terraform_version }}_linux_amd64.zip"
+terraform_url: "http://dl.bintray.com/mitchellh/terraform/{{ terraform_archive }}"
+
+vault_version: "0.2.0"
+vault_archive: "vault_{{ vault_version }}_linux_amd64.zip"
+vault_url: "http://dl.bintray.com/mitchellh/vault/{{ vault_archive }}"

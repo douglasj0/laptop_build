@@ -1,0 +1,9 @@
+---
+- name: Packer
+  include: packer.yml
+
+- name: Terraform
+  include: terraform.yml
+
+- name: Vault
+  include: vault.yml

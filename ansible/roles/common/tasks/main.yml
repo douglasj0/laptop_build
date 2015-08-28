@@ -1,6 +1,4 @@
 ---
-- name: Gather Default Variables
-  include_vars: "../vars/main.yml"
 
 - name: Update apt-cache
   apt: update_cache=yes
@@ -12,7 +10,7 @@
 - name: ensure basic software is installed
   action: >
     {{ ansible_pkg_mgr }} name="{{ item }}" state="installed"
-  with_items: [curl, tmux, screen, git, ncdu, tree, vim, wget, unzip ]
+  with_items: [curl, tmux, screen, git, ncdu, tree, vim, wget, unzip, jq, ipcalc ]
 
 - name: install desktop software
   include: desktop_software.yml
@@ -26,9 +24,6 @@
 
 - name: Janus VIM environment
   include: janus_vim.yml
-
-- name: Packer
-  include: packer.yml
 
 #
 # Bash environment

@@ -1,0 +1,25 @@
+---
+- name: Download Terraform
+  get_url:
+    url: "{{ terraform_url }}"
+    dest: "/usr/local/src/{{ terraform_archive }}"
+    force: no
+
+- name: Create Terraform Destination Directory
+  file:
+    path: "/usr/local/terraform-{{ terraform_version }}"
+    state: directory
+
+- name: Unarchive Terraform
+  unarchive:
+    copy: no
+    creates: "/usr/local/terraform-{{ terraform_version }}/terraform"
+    dest: "/usr/local/terraform-{{ terraform_version }}/"
+    src: "/usr/local/src/{{ terraform_archive }}"
+
+- name: Create Terraform Profile
+  template:
+    src: "terraform.j2"
+    dest: "/etc/profile.d/terraform.sh"
+    mode: 775
+
